@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="style.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
+  <!-- Lenis smooth scrolling -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- SEO -->
+  <title>Elmira's Daycare — Bilingual Childcare Since 2002 | San Diego</title>
+  <meta name="description" content="Quality bilingual English/Russian daycare in San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
+  <meta property="og:title" content="Elmira's Daycare — Bilingual Childcare Since 2002">
+  <meta property="og:description" content="Quality bilingual English/Russian daycare in San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elmiras.flexfly.ai">
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ChildCare",
+    "name": "Elmira's Daycare",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6540 Arundel Place",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "postalCode": "92117"
+    },
+    "telephone": "(858) 860-4055",
+    "email": "elmirasdaycare@yahoo.com",
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "url": "https://elmiras.flexfly.ai"
+  }
+  </script>
+
+  <style>
+    :root {
+      /* Brand-inspired palette for nurturing childcare */
+      --color-primary: #ff8a80;
+      --color-primary-light: #ffb3aa;
+      --color-accent: #81c784;
+      --color-background: #fefefe;
+      --color-surface: #ffffff;
+      --color-text: #2c2c2c;
+      --color-text-muted: #666666;
+
+      /* Atmospheric effects */
+      --shadow-primary: 0 20px 60px rgba(255, 138, 128, 0.15);
+      --shadow-elevated: 0 8px 30px rgba(0,0,0,0.08);
+      --gradient-hero: radial-gradient(ellipse at 30% 40%, rgba(255, 138, 128, 0.12) 0%, transparent 50%);
+
+      /* Typography */
+      --font-display: 'Lora', serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      /* Spacing rhythm */
+      --section-padding: clamp(4rem, 8vw, 8rem);
+    }
+
+    /* GSAP reveal classes - hidden by default */
+    .reveal, .program-card, .gallery-item {
+      opacity: 0;
+    }
+
+    /* Tailwind config extension */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': 'var(--color-primary)',
+            'primary-light': 'var(--color-primary-light)',
+            'accent': 'var(--color-accent)',
+            'surface': 'var(--color-surface)',
+            'text': 'var(--color-text)',
+            'text-muted': 'var(--color-text-muted)'
+          },
+          fontFamily: {
+            'display': 'var(--font-display)',
+            'body': 'var(--font-body)'
+          }
+        }
+      }
+    }
+  </style>
+
+  <!-- Fallback for no-JS -->
+  <noscript>
+    <style>
+      .reveal, .program-card, .gallery-item {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+</head>
+
+<body class="font-body text-text bg-background">
+  <main>
+  <!-- Hero Section -->
+  <section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background with warm gradient overlay -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+      <div class="absolute inset-0" style="background: var(--gradient-hero);"></div>
+    </div>
+    
+    <!-- Hero image with parallax -->
+    <div class="absolute inset-0 parallax-bg">
+      <img src="images/hero.jpg" alt="Elmira's Daycare" class="w-full h-full object-cover opacity-30">
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <h1 class="hero-title font-display text-5xl md:text-7xl font-bold text-text leading-tight">
+        <span>Elmira's</span>
+        <span class="block text-primary">Daycare</span>
+      </h1>
+      
+      <p class="hero-subtitle text-xl md:text-2xl text-text-muted mt-6 max-w-2xl mx-auto font-light">
+        Nurturing bilingual English/Russian childcare since 2002. Ages 12 months to 4 years.
+      </p>
+
+      <!-- Phone CTA with pulse animation -->
+      <div class="mt-8 space-y-4">
+        <a href="tel:8588604055" class="phone-cta inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-medium hover:bg-primary-light transition-all duration-300 shadow-primary">
+          <i data-lucide="phone" class="w-6 h-6"></i>
+          (858) 860-4055
+        </a>
+        
+        <p class="text-text-muted">
+          <i data-lucide="clock" class="w-4 h-4 inline mr-2"></i>
+          Monday-Friday, 8am-6pm
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i data-lucide="chevron-down" class="w-8 h-8 text-text-muted"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" style="padding-block: var(--section-padding);">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- About content -->
+        <div class="reveal">
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
+            Where Children
+            <span class="text-primary">Flourish</span>
+          </h2>
+          
+          <div class="space-y-6 text-lg text-text-muted leading-relaxed">
+            <p>
+              Since 2002, Elmira's Daycare has been a second home for children and families in San Diego. We provide a warm, nurturing environment where children ages 12 months to 4 years can learn, play, and grow.
+            </p>
+            
+            <p>
+              Our <strong class="text-text">bilingual English/Russian program</strong> offers children the gift of multilingual development while fostering creativity through play-based learning, music, and art.
+            </p>
+            
+            <p>
+              We believe in the power of home-cooked meals, genuine care, and creating lasting friendships that extend beyond our walls.
+            </p>
+
+            <!-- Key features -->
+            <div class="grid sm:grid-cols-2 gap-4 mt-8">
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-accent rounded-full"></div>
+                <span class="text-text">Since 2002</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-accent rounded-full"></div>
+                <span class="text-text">Ages 12mo-4yr</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-accent rounded-full"></div>
+                <span class="text-text">Bilingual Program</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-accent rounded-full"></div>
+                <span class="text-text">Home Meals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About image -->
+        <div class="reveal">
+          <div class="rounded-3xl overflow-hidden shadow-elevated">
+            <img src="images/about.jpg" alt="Children at Elmira's Daycare" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs bg-gradient-to-b from-background to-surface" style="padding-block: var(--section-padding);">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
+          Our <span class="text-primary">Programs</span>
+        </h2>
+        <p class="text-xl text-text-muted max-w-2xl mx-auto">
+          Age-appropriate activities designed to nurture each child's development through play, creativity, and social interaction.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Toddler Program -->
+        <div class="program-card bg-surface rounded-3xl p-8 shadow-elevated hover:shadow-primary transition-all duration-500 hover:-translate-y-2">
+          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="baby" class="w-8 h-8 text-white"></i>
+          </div>
+          
+          <h3 class="font-display text-2xl font-bold text-text mb-4">Toddler Program</h3>
+          <p class="text-text-muted mb-4">Ages 12 months - 2 years</p>
+          
+          <ul class="space-y-3 text-text-muted">
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Sensory play and exploration
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Language development (English/Russian)
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Social interaction with peers
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Music and movement
+            </li>
+          </ul>
+        </div>
+
+        <!-- Preschool Program -->
+        <div class="program-card bg-surface rounded-3xl p-8 shadow-elevated hover:shadow-primary transition-all duration-500 hover:-translate-y-2">
+          <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-6">
+            <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+          </div>
+          
+          <h3 class="font-display text-2xl font-bold text-text mb-4">Preschool Program</h3>
+          <p class="text-text-muted mb-4">Ages 3 - 4 years</p>
+          
+          <ul class="space-y-3 text-text-muted">
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Creative arts and crafts
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Pre-reading and math skills
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              Bilingual storytelling
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+              School readiness activities
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery" style="padding-block: var(--section-padding);">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
+          Our <span class="text-primary">Happy Place</span>
+        </h2>
+        <p class="text-xl text-text-muted">
+          Take a peek into our warm, welcoming environment where children learn and play every day.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
+          <img src="images/gallery-1.jpg" alt="Children playing at Elmira's Daycare" class="w-full h-64 object-cover" loading="lazy">
+        </div>
+        
+        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
+          <img src="images/gallery-2.jpg" alt="Learning activities" class="w-full h-64 object-cover" loading="lazy">
+        </div>
+        
+        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
+          <img src="images/gallery-3.jpg" alt="Daycare facility" class="w-full h-64 object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact bg-gradient-to-b from-surface to-background" style="padding-block: var(--section-padding);">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div class="reveal">
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-8">
+            Ready to <span class="text-primary">Visit?</span>
+          </h2>
+          
+          <div class="space-y-6">
+            <!-- Phone -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
+                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="font-medium text-text">Primary Phone</p>
+                <a href="tel:8588604055" class="text-primary hover:text-primary-light text-lg font-medium">(858) 860-4055</a>
+              </div>
+            </div>
+
+            <!-- Alt Phone -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
+                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="font-medium text-text">Alternative Phone</p>
+                <a href="tel:8584679026" class="text-accent hover:text-accent/80 text-lg font-medium">(858) 467-9026</a>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
+                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="font-medium text-text">Email</p>
+                <a href="mailto:elmirasdaycare@yahoo.com" class="text-primary hover:text-primary-light text-lg">elmirasdaycare@yahoo.com</a>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
+                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="font-medium text-text">Hours</p>
+                <p class="text-text-muted text-lg">Monday-Friday, 8am-6pm</p>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <p class="font-medium text-text">Address</p>
+                <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="text-text-muted hover:text-primary text-lg">
+                  6540 Arundel Place<br>
+                  San Diego, CA 92117
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 pt-8 border-t border-primary/20">
+            <p class="text-text-muted mb-4">Ready to schedule a visit? We'd love to meet you and your little one!</p>
+            <a href="tel:8588604055" class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-primary-light transition-all duration-300 shadow-primary">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+              Call Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="reveal">
+          <div class="bg-surface rounded-3xl p-8 shadow-elevated h-full min-h-[500px] flex items-center justify-center">
+            <div class="text-center">
+              <div class="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="map-pin" class="w-10 h-10 text-primary"></i>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-text mb-4">We're in Clairemont</h3>
+              <p class="text-text-muted mb-6">
+                Located in a quiet residential area, easily accessible from major San Diego neighborhoods.
+              </p>
+              <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light font-medium">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                Get Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-text text-background py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-display text-2xl font-bold mb-4">Elmira's Daycare</h3>
+          <p class="text-background/80">
+            Quality bilingual childcare since 2002. Where children learn, play, and flourish.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-medium text-lg mb-4">Quick Contact</h4>
+          <div class="space-y-2 text-background/80">
+            <p>(858) 860-4055</p>
+            <p>elmirasdaycare@yahoo.com</p>
+            <p>Monday-Friday, 8am-6pm</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-medium text-lg mb-4">Location</h4>
+          <p class="text-background/80">
+            6540 Arundel Place<br>
+            San Diego, CA 92117
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-background/20 mt-8 pt-8 text-center text-background/60">
+        <p>&copy; 2026 Elmira's Daycare. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load animations -->
+  <script src="animations.js" defer></script>
+</body>
+</html>
