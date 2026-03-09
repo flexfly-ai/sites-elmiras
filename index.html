@@ -7,15 +7,11 @@
   <!-- Tailwind CSS v4 -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts — Warm luxury pair for childcare -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Custom styles -->
   <link href="style.css" rel="stylesheet">
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
@@ -29,14 +25,14 @@
 
   <!-- SEO -->
   <title>Elmira's Daycare — Bilingual Childcare Since 2002 | San Diego</title>
-  <meta name="description" content="Quality bilingual English/Russian daycare in San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
+  <meta name="description" content="Quality bilingual English/Russian daycare in Clairemont, San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
   <meta property="og:title" content="Elmira's Daycare — Bilingual Childcare Since 2002">
-  <meta property="og:description" content="Quality bilingual English/Russian daycare in San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
+  <meta property="og:description" content="Quality bilingual English/Russian daycare in Clairemont, San Diego. Ages 12 months-4 years. Play-based learning, home-cooked meals, loving environment since 2002.">
   <meta property="og:image" content="images/hero.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://elmiras.flexfly.ai">
 
-  <!-- Schema.org LocalBusiness -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,58 +54,104 @@
 
   <style>
     :root {
-      /* Brand-inspired palette for nurturing childcare */
-      --color-primary: #ff8a80;
-      --color-primary-light: #ffb3aa;
-      --color-accent: #81c784;
-      --color-background: #fefefe;
+      /* ── Warm, nurturing palette inspired by children's daycare ── */
+      --color-primary: #e8685a;
+      --color-primary-light: #f0877b;
+      --color-primary-dark: #d04f42;
+      --color-accent: #5ba67a;
+      --color-accent-light: #6fbd8e;
+
+      /* ── Backgrounds ── */
+      --color-background: #fffbf7;
       --color-surface: #ffffff;
-      --color-text: #2c2c2c;
-      --color-text-muted: #666666;
+      --color-surface-elevated: #ffffff;
+      --color-section-alt: #fdf3ec;
+      --color-text: #2a2420;
+      --color-text-muted: #7a6e63;
+      --color-text-on-primary: #ffffff;
 
-      /* Atmospheric effects */
-      --shadow-primary: 0 20px 60px rgba(255, 138, 128, 0.15);
-      --shadow-elevated: 0 8px 30px rgba(0,0,0,0.08);
-      --gradient-hero: radial-gradient(ellipse at 30% 40%, rgba(255, 138, 128, 0.12) 0%, transparent 50%);
+      /* ── Shadows ── */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 20px 60px color-mix(in srgb, var(--color-primary) 12%, transparent);
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+      --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.06), 0 20px 48px rgba(0,0,0,0.1);
 
-      /* Typography */
-      --font-display: 'Lora', serif;
+      /* ── Hero overlay ── */
+      --hero-overlay: linear-gradient(135deg, rgba(42,36,32,0.6) 0%, rgba(42,36,32,0.35) 100%);
+
+      /* ── Typography ── */
+      --font-display: 'Playfair Display', serif;
       --font-body: 'DM Sans', sans-serif;
+      --text-hero: clamp(3rem, 6vw, 5.5rem);
+      --text-h1: clamp(2.5rem, 5vw, 4rem);
+      --text-h2: clamp(2rem, 4vw, 3rem);
+      --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+      --text-body: clamp(1rem, 1.2vw, 1.125rem);
+      --text-small: clamp(0.85rem, 1vw, 0.9rem);
+      --text-caption: 0.75rem;
 
-      /* Spacing rhythm */
+      /* ── Spacing ── */
       --section-padding: clamp(4rem, 8vw, 8rem);
+      --content-padding: clamp(1.5rem, 4vw, 3rem);
+      --card-padding: clamp(1.5rem, 3vw, 2.5rem);
+      --gap-sm: 0.75rem;
+      --gap-md: 1.5rem;
+      --gap-lg: 3rem;
+
+      /* ── Borders & Radius ── */
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-xl: 2rem;
+      --border-subtle: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
     }
 
-    /* GSAP reveal classes - hidden by default */
-    .reveal, .program-card, .gallery-item {
+    /* GSAP reveal classes */
+    .reveal, .service-card, .gallery-item, .testimonial-card {
       opacity: 0;
     }
+  </style>
 
-    /* Tailwind config extension */
+  <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'primary': 'var(--color-primary)',
+            primary: 'var(--color-primary)',
             'primary-light': 'var(--color-primary-light)',
-            'accent': 'var(--color-accent)',
-            'surface': 'var(--color-surface)',
-            'text': 'var(--color-text)',
-            'text-muted': 'var(--color-text-muted)'
+            'primary-dark': 'var(--color-primary-dark)',
+            accent: 'var(--color-accent)',
+            'accent-light': 'var(--color-accent-light)',
+            surface: 'var(--color-surface)',
+            'surface-elevated': 'var(--color-surface-elevated)',
+            'section-alt': 'var(--color-section-alt)',
+            'text-primary': 'var(--color-text)',
+            'text-muted': 'var(--color-text-muted)',
           },
           fontFamily: {
-            'display': 'var(--font-display)',
-            'body': 'var(--font-body)'
-          }
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+          },
+          boxShadow: {
+            card: 'var(--shadow-card)',
+            'card-hover': 'var(--shadow-card-hover)',
+            lg: 'var(--shadow-lg)',
+          },
         }
       }
     }
-  </style>
+  </script>
 
-  <!-- Fallback for no-JS -->
   <noscript>
     <style>
-      .reveal, .program-card, .gallery-item {
+      .reveal, .service-card, .gallery-item, .testimonial-card {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -117,175 +159,217 @@
   </noscript>
 </head>
 
-<body class="font-body text-text bg-background">
-  <main>
-  <!-- Hero Section -->
-  <section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
-    <!-- Background with warm gradient overlay -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
-      <div class="absolute inset-0" style="background: var(--gradient-hero);"></div>
-    </div>
-    
-    <!-- Hero image with parallax -->
-    <div class="absolute inset-0 parallax-bg">
-      <img src="images/hero.jpg" alt="Elmira's Daycare" class="w-full h-full object-cover opacity-30">
+<body class="font-body" style="color: var(--color-text); background: var(--color-background);">
+
+  <!-- ─── Navigation Bar ─── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#" class="font-display text-xl font-bold text-white tracking-tight">Elmira's Daycare</a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-white/80 hover:text-white transition text-sm font-medium tracking-wide uppercase">About</a>
+        <a href="#programs" class="text-white/80 hover:text-white transition text-sm font-medium tracking-wide uppercase">Programs</a>
+        <a href="#gallery" class="text-white/80 hover:text-white transition text-sm font-medium tracking-wide uppercase">Gallery</a>
+        <a href="#contact" class="text-white/80 hover:text-white transition text-sm font-medium tracking-wide uppercase">Contact</a>
+        <a href="tel:8588604055" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[var(--color-primary-light)] transition-all duration-300 shadow-md hover:shadow-lg">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          Call Now
+        </a>
+      </div>
+
+      <button class="md:hidden text-white" id="mobile-menu-btn" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
     </div>
 
-    <!-- Hero content -->
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <h1 class="hero-title font-display text-5xl md:text-7xl font-bold text-text leading-tight">
-        <span>Elmira's</span>
-        <span class="block text-primary">Daycare</span>
+    <div class="hidden md:hidden backdrop-blur-md" id="mobile-menu" style="background: rgba(42,36,32,0.95);">
+      <div class="px-6 py-8 space-y-4">
+        <a href="#about" class="block text-white/80 hover:text-white text-lg py-2">About</a>
+        <a href="#programs" class="block text-white/80 hover:text-white text-lg py-2">Programs</a>
+        <a href="#gallery" class="block text-white/80 hover:text-white text-lg py-2">Gallery</a>
+        <a href="#contact" class="block text-white/80 hover:text-white text-lg py-2">Contact</a>
+        <a href="tel:8588604055" class="block bg-[var(--color-primary)] text-white text-center px-6 py-3 rounded-full text-lg font-semibold mt-4">
+          Call (858) 860-4055
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+  <!-- ─── Hero Section ─── -->
+  <section class="hero relative min-h-screen flex items-center overflow-hidden" id="hero">
+    <!-- Background image at FULL opacity -->
+    <div class="absolute inset-0 parallax-bg">
+      <img src="images/hero.jpg" alt="Children playing at Elmira's Daycare" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Dark warm gradient overlay — strong enough for white text readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1510]/80 via-[#2a2420]/65 to-[#1a1510]/75"></div>
+
+    <!-- Content — white text on dark overlay -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-20">
+      <h1 class="hero-title font-bold text-white leading-[1.05] tracking-tight" style="font-size: var(--text-hero); font-family: 'Montserrat', sans-serif; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">
+        <span class="block font-extrabold">Where Children</span>
+        <span class="block font-extrabold" style="color: var(--color-primary-light);">Learn & Flourish</span>
       </h1>
-      
-      <p class="hero-subtitle text-xl md:text-2xl text-text-muted mt-6 max-w-2xl mx-auto font-light">
+
+      <p class="hero-subtitle text-white/90 mt-6 max-w-2xl leading-relaxed" style="font-size: var(--text-h3); text-shadow: 0 1px 8px rgba(0,0,0,0.3);">
         Nurturing bilingual English/Russian childcare since 2002. Ages 12 months to 4 years.
       </p>
 
-      <!-- Phone CTA with pulse animation -->
-      <div class="mt-8 space-y-4">
-        <a href="tel:8588604055" class="phone-cta inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-xl font-medium hover:bg-primary-light transition-all duration-300 shadow-primary">
-          <i data-lucide="phone" class="w-6 h-6"></i>
+      <div class="hero-cta mt-10 flex flex-wrap gap-4">
+        <a href="tel:8588604055" class="inline-flex items-center gap-3 bg-[var(--color-primary)] text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+          <i data-lucide="phone" class="w-5 h-5"></i>
           (858) 860-4055
         </a>
-        
-        <p class="text-text-muted">
-          <i data-lucide="clock" class="w-4 h-4 inline mr-2"></i>
-          Monday-Friday, 8am-6pm
-        </p>
+        <a href="#about" class="inline-flex items-center gap-2 text-white border border-white/30 px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300">
+          Learn More
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Quick info badges -->
+      <div class="hero-badges mt-12 flex flex-wrap gap-6 text-white/70 text-sm">
+        <span class="flex items-center gap-2">
+          <i data-lucide="clock" class="w-4 h-4"></i>
+          Monday–Friday, 8am–6pm
+        </span>
+        <span class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4"></i>
+          Clairemont, San Diego
+        </span>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <i data-lucide="chevron-down" class="w-8 h-8 text-text-muted"></i>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <i data-lucide="chevron-down" class="w-8 h-8 text-white/50"></i>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" style="padding-block: var(--section-padding);">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- About content -->
-        <div class="reveal">
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
-            Where Children
-            <span class="text-primary">Flourish</span>
+  <!-- ─── About Section ─── -->
+  <section class="about" style="padding-block: var(--section-padding); background: var(--color-background);" id="about">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-5 gap-12 lg:gap-16 items-center">
+        <!-- Text (3 cols) -->
+        <div class="md:col-span-3 reveal">
+          <p class="font-semibold text-sm uppercase tracking-widest mb-4" style="color: var(--color-accent);">Our Story</p>
+          <h2 class="font-display font-bold leading-tight mb-6" style="font-size: var(--text-h2); color: var(--color-text);">
+            A Second Home for <span style="color: var(--color-primary);">Your Family</span>
           </h2>
-          
-          <div class="space-y-6 text-lg text-text-muted leading-relaxed">
+          <div class="space-y-4 leading-relaxed" style="font-size: var(--text-body); color: var(--color-text-muted);">
             <p>
               Since 2002, Elmira's Daycare has been a second home for children and families in San Diego. We provide a warm, nurturing environment where children ages 12 months to 4 years can learn, play, and grow.
             </p>
-            
             <p>
-              Our <strong class="text-text">bilingual English/Russian program</strong> offers children the gift of multilingual development while fostering creativity through play-based learning, music, and art.
+              Our <strong style="color: var(--color-text);">bilingual English/Russian program</strong> offers children the gift of multilingual development while fostering creativity through play-based learning, music, and art.
             </p>
-            
             <p>
               We believe in the power of home-cooked meals, genuine care, and creating lasting friendships that extend beyond our walls.
             </p>
+          </div>
 
-            <!-- Key features -->
-            <div class="grid sm:grid-cols-2 gap-4 mt-8">
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-accent rounded-full"></div>
-                <span class="text-text">Since 2002</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-accent rounded-full"></div>
-                <span class="text-text">Ages 12mo-4yr</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-accent rounded-full"></div>
-                <span class="text-text">Bilingual Program</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-accent rounded-full"></div>
-                <span class="text-text">Home Meals</span>
-              </div>
+          <!-- Stats row -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10 pt-8" style="border-top: var(--border-subtle);">
+            <div>
+              <p class="font-display text-3xl font-bold" style="color: var(--color-primary);">20+</p>
+              <p class="text-sm mt-1" style="color: var(--color-text-muted);">Years of Care</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl font-bold" style="color: var(--color-primary);">12mo</p>
+              <p class="text-sm mt-1" style="color: var(--color-text-muted);">Starting Age</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl font-bold" style="color: var(--color-primary);">2</p>
+              <p class="text-sm mt-1" style="color: var(--color-text-muted);">Languages</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl font-bold" style="color: var(--color-primary);">
+                <i data-lucide="heart" class="w-8 h-8 inline"></i>
+              </p>
+              <p class="text-sm mt-1" style="color: var(--color-text-muted);">Home Meals</p>
             </div>
           </div>
         </div>
 
-        <!-- About image -->
-        <div class="reveal">
-          <div class="rounded-3xl overflow-hidden shadow-elevated">
-            <img src="images/about.jpg" alt="Children at Elmira's Daycare" class="w-full h-full object-cover">
+        <!-- Image (2 cols) -->
+        <div class="md:col-span-2 reveal">
+          <div class="relative">
+            <img src="images/about.jpg" alt="Children learning at Elmira's Daycare" class="w-full rounded-xl object-cover aspect-[4/5]" style="box-shadow: var(--shadow-card);">
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl -z-10" style="background: color-mix(in srgb, var(--color-accent) 15%, transparent);"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Programs Section -->
-  <section class="programs bg-gradient-to-b from-background to-surface" style="padding-block: var(--section-padding);">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
-          Our <span class="text-primary">Programs</span>
+  <!-- ─── Programs Section ─── -->
+  <section class="programs" style="padding-block: var(--section-padding); background: var(--color-section-alt);" id="programs">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Section header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <p class="font-semibold text-sm uppercase tracking-widest mb-4" style="color: var(--color-accent);">What We Offer</p>
+        <h2 class="font-display font-bold leading-tight" style="font-size: var(--text-h2); color: var(--color-text);">
+          Our <span style="color: var(--color-primary);">Programs</span>
         </h2>
-        <p class="text-xl text-text-muted max-w-2xl mx-auto">
+        <p class="mt-4" style="font-size: var(--text-body); color: var(--color-text-muted);">
           Age-appropriate activities designed to nurture each child's development through play, creativity, and social interaction.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Program cards -->
+      <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <!-- Toddler Program -->
-        <div class="program-card bg-surface rounded-3xl p-8 shadow-elevated hover:shadow-primary transition-all duration-500 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="baby" class="w-8 h-8 text-white"></i>
+        <div class="service-card group rounded-xl transition-all duration-300 hover:-translate-y-1" style="background: var(--color-surface); padding: var(--card-padding); box-shadow: var(--shadow-card); border: var(--border-subtle);">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background: color-mix(in srgb, var(--color-primary) 12%, transparent);">
+            <i data-lucide="baby" class="w-6 h-6" style="color: var(--color-primary);"></i>
           </div>
-          
-          <h3 class="font-display text-2xl font-bold text-text mb-4">Toddler Program</h3>
-          <p class="text-text-muted mb-4">Ages 12 months - 2 years</p>
-          
-          <ul class="space-y-3 text-text-muted">
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Sensory play and exploration
+          <h3 class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Toddler Program</h3>
+          <p class="text-sm font-medium mb-4" style="color: var(--color-primary);">Ages 12 months – 2 years</p>
+          <ul class="space-y-3" style="color: var(--color-text-muted); font-size: var(--text-body);">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Sensory play and exploration</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Language development (English/Russian)
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Language development (English/Russian)</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Social interaction with peers
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Social interaction with peers</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Music and movement
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Music and movement</span>
             </li>
           </ul>
         </div>
 
         <!-- Preschool Program -->
-        <div class="program-card bg-surface rounded-3xl p-8 shadow-elevated hover:shadow-primary transition-all duration-500 hover:-translate-y-2">
-          <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mb-6">
-            <i data-lucide="palette" class="w-8 h-8 text-white"></i>
+        <div class="service-card group rounded-xl transition-all duration-300 hover:-translate-y-1" style="background: var(--color-surface); padding: var(--card-padding); box-shadow: var(--shadow-card); border: var(--border-subtle);">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" style="background: color-mix(in srgb, var(--color-accent) 12%, transparent);">
+            <i data-lucide="book-open" class="w-6 h-6" style="color: var(--color-accent);"></i>
           </div>
-          
-          <h3 class="font-display text-2xl font-bold text-text mb-4">Preschool Program</h3>
-          <p class="text-text-muted mb-4">Ages 3 - 4 years</p>
-          
-          <ul class="space-y-3 text-text-muted">
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Creative arts and crafts
+          <h3 class="font-display text-xl font-bold mb-2" style="color: var(--color-text);">Preschool Program</h3>
+          <p class="text-sm font-medium mb-4" style="color: var(--color-accent);">Ages 3 – 4 years</p>
+          <ul class="space-y-3" style="color: var(--color-text-muted); font-size: var(--text-body);">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Creative arts and crafts</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Pre-reading and math skills
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Pre-reading and math skills</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              Bilingual storytelling
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>Bilingual storytelling</span>
             </li>
-            <li class="flex items-center gap-3">
-              <i data-lucide="check" class="w-4 h-4 text-accent"></i>
-              School readiness activities
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-5 h-5 mt-0.5 flex-shrink-0" style="color: var(--color-accent);"></i>
+              <span>School readiness activities</span>
             </li>
           </ul>
         </div>
@@ -293,173 +377,168 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
-  <section class="gallery" style="padding-block: var(--section-padding);">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-6">
-          Our <span class="text-primary">Happy Place</span>
+  <!-- ─── Gallery Section ─── -->
+  <section class="gallery" style="padding-block: var(--section-padding); background: var(--color-background);" id="gallery">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <p class="font-semibold text-sm uppercase tracking-widest mb-4" style="color: var(--color-accent);">A Peek Inside</p>
+        <h2 class="font-display font-bold leading-tight" style="font-size: var(--text-h2); color: var(--color-text);">
+          Our Happy <span style="color: var(--color-primary);">Place</span>
         </h2>
-        <p class="text-xl text-text-muted">
+        <p class="mt-4" style="font-size: var(--text-body); color: var(--color-text-muted);">
           Take a peek into our warm, welcoming environment where children learn and play every day.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
-          <img src="images/gallery-1.jpg" alt="Children playing at Elmira's Daycare" class="w-full h-64 object-cover" loading="lazy">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="gallery-item group relative overflow-hidden rounded-lg aspect-square cursor-pointer">
+          <img src="images/gallery-1.jpg" alt="Children playing at Elmira's Daycare" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"></div>
         </div>
-        
-        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
-          <img src="images/gallery-2.jpg" alt="Learning activities" class="w-full h-64 object-cover" loading="lazy">
+        <div class="gallery-item group relative overflow-hidden rounded-lg aspect-square cursor-pointer">
+          <img src="images/gallery-2.jpg" alt="Learning activities at Elmira's Daycare" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"></div>
         </div>
-        
-        <div class="gallery-item rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-105">
-          <img src="images/gallery-3.jpg" alt="Daycare facility" class="w-full h-64 object-cover" loading="lazy">
+        <div class="gallery-item group relative overflow-hidden rounded-lg aspect-square cursor-pointer">
+          <img src="images/gallery-3.jpg" alt="Daycare facility" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact bg-gradient-to-b from-surface to-background" style="padding-block: var(--section-padding);">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12">
-        <!-- Contact Info -->
+  <!-- ─── Contact Section ─── -->
+  <section class="contact" style="padding-block: var(--section-padding); background: var(--color-section-alt);" id="contact">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+        <!-- Contact info -->
         <div class="reveal">
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-text mb-8">
-            Ready to <span class="text-primary">Visit?</span>
+          <p class="font-semibold text-sm uppercase tracking-widest mb-4" style="color: var(--color-accent);">Get in Touch</p>
+          <h2 class="font-display font-bold leading-tight mb-8" style="font-size: var(--text-h2); color: var(--color-text);">
+            Ready to <span style="color: var(--color-primary);">Visit?</span>
           </h2>
-          
+
           <div class="space-y-6">
-            <!-- Phone -->
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
-                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+            <a href="tel:8588604055" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center transition-colors" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                <i data-lucide="phone" class="w-5 h-5" style="color: var(--color-primary);"></i>
               </div>
               <div>
-                <p class="font-medium text-text">Primary Phone</p>
-                <a href="tel:8588604055" class="text-primary hover:text-primary-light text-lg font-medium">(858) 860-4055</a>
+                <p class="text-sm" style="color: var(--color-text-muted);">Primary Phone</p>
+                <p class="font-semibold" style="color: var(--color-text);">(858) 860-4055</p>
+              </div>
+            </a>
+
+            <a href="tel:8584679026" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center transition-colors" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                <i data-lucide="phone" class="w-5 h-5" style="color: var(--color-primary);"></i>
+              </div>
+              <div>
+                <p class="text-sm" style="color: var(--color-text-muted);">Alternative Phone</p>
+                <p class="font-semibold" style="color: var(--color-text);">(858) 467-9026</p>
+              </div>
+            </a>
+
+            <a href="mailto:elmirasdaycare@yahoo.com" class="flex items-center gap-4 group">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center transition-colors" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                <i data-lucide="mail" class="w-5 h-5" style="color: var(--color-primary);"></i>
+              </div>
+              <div>
+                <p class="text-sm" style="color: var(--color-text-muted);">Email</p>
+                <p class="font-semibold" style="color: var(--color-text);">elmirasdaycare@yahoo.com</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                <i data-lucide="clock" class="w-5 h-5" style="color: var(--color-primary);"></i>
+              </div>
+              <div>
+                <p class="text-sm" style="color: var(--color-text-muted);">Hours</p>
+                <p class="font-semibold" style="color: var(--color-text);">Monday–Friday, 8am–6pm</p>
               </div>
             </div>
 
-            <!-- Alt Phone -->
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
-                <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+            <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="flex items-start gap-4 group">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors" style="background: color-mix(in srgb, var(--color-primary) 10%, transparent);">
+                <i data-lucide="map-pin" class="w-5 h-5" style="color: var(--color-primary);"></i>
               </div>
               <div>
-                <p class="font-medium text-text">Alternative Phone</p>
-                <a href="tel:8584679026" class="text-accent hover:text-accent/80 text-lg font-medium">(858) 467-9026</a>
+                <p class="text-sm" style="color: var(--color-text-muted);">Address</p>
+                <p class="font-semibold" style="color: var(--color-text);">6540 Arundel Place<br>San Diego, CA 92117</p>
               </div>
-            </div>
-
-            <!-- Email -->
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
-                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
-              </div>
-              <div>
-                <p class="font-medium text-text">Email</p>
-                <a href="mailto:elmirasdaycare@yahoo.com" class="text-primary hover:text-primary-light text-lg">elmirasdaycare@yahoo.com</a>
-              </div>
-            </div>
-
-            <!-- Hours -->
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-accent rounded-2xl flex items-center justify-center">
-                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
-              </div>
-              <div>
-                <p class="font-medium text-text">Hours</p>
-                <p class="text-text-muted text-lg">Monday-Friday, 8am-6pm</p>
-              </div>
-            </div>
-
-            <!-- Address -->
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center">
-                <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
-              </div>
-              <div>
-                <p class="font-medium text-text">Address</p>
-                <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="text-text-muted hover:text-primary text-lg">
-                  6540 Arundel Place<br>
-                  San Diego, CA 92117
-                </a>
-              </div>
-            </div>
+            </a>
           </div>
 
           <!-- CTA -->
-          <div class="mt-8 pt-8 border-t border-primary/20">
-            <p class="text-text-muted mb-4">Ready to schedule a visit? We'd love to meet you and your little one!</p>
-            <a href="tel:8588604055" class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-primary-light transition-all duration-300 shadow-primary">
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="tel:8588604055" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-full font-semibold text-lg hover:scale-[1.02] transition-all duration-300" style="background: var(--color-primary); box-shadow: var(--shadow-lg);">
               <i data-lucide="phone" class="w-5 h-5"></i>
-              Call Now
+              Schedule a Visit
             </a>
           </div>
+
+          <p class="mt-6 text-sm" style="color: var(--color-text-muted);">
+            Ready to schedule a visit? We'd love to meet you and your little one!
+          </p>
         </div>
 
-        <!-- Map placeholder -->
+        <!-- Location card -->
         <div class="reveal">
-          <div class="bg-surface rounded-3xl p-8 shadow-elevated h-full min-h-[500px] flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-20 h-20 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                <i data-lucide="map-pin" class="w-10 h-10 text-primary"></i>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-text mb-4">We're in Clairemont</h3>
-              <p class="text-text-muted mb-6">
-                Located in a quiet residential area, easily accessible from major San Diego neighborhoods.
-              </p>
-              <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary-light font-medium">
-                <i data-lucide="external-link" class="w-4 h-4"></i>
-                Get Directions
-              </a>
+          <div class="rounded-xl p-8 h-full flex flex-col justify-center items-center text-center" style="background: var(--color-surface); box-shadow: var(--shadow-card); border: var(--border-subtle);">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background: color-mix(in srgb, var(--color-accent) 12%, transparent);">
+              <i data-lucide="map-pin" class="w-8 h-8" style="color: var(--color-accent);"></i>
             </div>
+            <h3 class="font-display text-xl font-bold mb-3" style="color: var(--color-text);">We're in Clairemont</h3>
+            <p class="mb-6 max-w-sm" style="color: var(--color-text-muted);">
+              Located in a quiet residential area, easily accessible from major San Diego neighborhoods.
+            </p>
+            <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="inline-flex items-center gap-2 font-semibold hover:underline" style="color: var(--color-accent);">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              Get Directions
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-text text-background py-12">
-    <div class="container mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-8">
+  <!-- ─── Footer ─── -->
+  <footer style="padding-block: var(--content-padding); background: var(--color-text); color: rgba(255,255,255,0.6);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h3 class="font-display text-2xl font-bold mb-4">Elmira's Daycare</h3>
-          <p class="text-background/80">
-            Quality bilingual childcare since 2002. Where children learn, play, and flourish.
-          </p>
+          <h4 class="font-display text-xl font-bold text-white mb-4">Elmira's Daycare</h4>
+          <p class="text-sm leading-relaxed">Quality bilingual childcare since 2002. Where children learn, play, and flourish.</p>
         </div>
-
         <div>
-          <h4 class="font-medium text-lg mb-4">Quick Contact</h4>
-          <div class="space-y-2 text-background/80">
+          <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Contact</h4>
+          <div class="space-y-2 text-sm">
             <p>(858) 860-4055</p>
+            <p>(858) 467-9026</p>
             <p>elmirasdaycare@yahoo.com</p>
-            <p>Monday-Friday, 8am-6pm</p>
+            <p>Monday–Friday, 8am–6pm</p>
           </div>
         </div>
-
         <div>
-          <h4 class="font-medium text-lg mb-4">Location</h4>
-          <p class="text-background/80">
-            6540 Arundel Place<br>
-            San Diego, CA 92117
-          </p>
+          <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Location</h4>
+          <p class="text-sm">6540 Arundel Place<br>San Diego, CA 92117</p>
+          <a href="https://maps.google.com/?q=6540+Arundel+Place,San+Diego,CA+92117" target="_blank" class="inline-flex items-center gap-1 text-sm mt-3 hover:text-white transition" style="color: var(--color-primary-light);">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Get Directions
+          </a>
         </div>
       </div>
 
-      <div class="border-t border-background/20 mt-8 pt-8 text-center text-background/60">
-        <p>&copy; 2026 Elmira's Daycare. All rights reserved.</p>
+      <div class="pt-6 text-center text-xs" style="border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.3);">
+        &copy; 2026 Elmira's Daycare. All rights reserved.
       </div>
     </div>
   </footer>
 
-  <!-- Load animations -->
+  <!-- Scripts -->
   <script src="animations.js" defer></script>
 </body>
 </html>

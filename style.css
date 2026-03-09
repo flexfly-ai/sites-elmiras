@@ -1,100 +1,84 @@
-/* Custom CSS for Elmira's Daycare */
+/* ── Custom CSS for Elmira's Daycare ── */
 
-/* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-light); }
 
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-light);
-}
-
-/* Focus states for accessibility */
-.phone-cta:focus,
-button:focus,
-a:focus {
+/* Focus states */
+a:focus, button:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Hover effects for gallery items */
+/* Navbar scroll state transition */
+#navbar {
+  transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+
+#navbar.scrolled {
+  background: rgba(42, 36, 32, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+#navbar.scrolled > div {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Gallery hover effects */
 .gallery-item img {
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
+/* Card hover shadow transition */
+.service-card:hover {
+  box-shadow: var(--shadow-card-hover) !important;
 }
 
-/* Program card hover lift effect */
-.program-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.program-card:hover {
-  transform: translateY(-8px);
-}
-
-/* Signature warm atmosphere effect */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(255, 138, 128, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(129, 199, 132, 0.06) 0%, transparent 40%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Soft rounded corners for warmth */
-.program-card,
-.gallery-item,
-.contact .bg-surface {
-  border-radius: 24px;
-}
-
-/* Responsive typography scaling */
+/* Responsive overrides */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.75rem !important;
   }
-  
+
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.125rem !important;
   }
-  
-  h2 {
-    font-size: 2.5rem;
+
+  .hero-badges {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.25rem !important;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .hero-cta a {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 /* Print styles */
 @media print {
-  .hero,
-  .gallery,
-  footer {
-    display: none;
-  }
-  
-  .contact {
-    page-break-inside: avoid;
+  nav, .hero, .gallery, footer, .animate-bounce { display: none; }
+  .contact { page-break-inside: avoid; }
+  .reveal, .service-card, .gallery-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
